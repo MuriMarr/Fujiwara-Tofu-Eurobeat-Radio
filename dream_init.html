@@ -3,203 +3,40 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.youtube.com https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; connect-src 'self' https://www.googleapis.com https://www.youtube.com http://localhost:*; frame-src https://www.youtube.com; font-src https://fonts.gstatic.com;">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; 
+  script-src 'self' 'unsafe-inline' https://www.youtube.com https://www.googletagmanager.com https://unpkg.com; 
+  style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; 
+  connect-src 'self' https://www.googleapis.com https://www.youtube.com http://localhost:*; 
+  frame-src https://www.youtube.com; 
+  font-src https://fonts.gstatic.com;">
   <title>Rádio Tofu de Fujiwara</title>
+  
+  <!-- Links -->
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Noto+Sans+JP&display=swap" rel="stylesheet">
   <link href="/style.css" rel="stylesheet">
+  
+  <!-- Scripts -->
   <script src="https://www.youtube.com/iframe_api"></script>
-  <style>
-    :root {
-      --bg: #0d0d0d;
-      --text: #f0f0f0;
-      --highlight: #ff3c38;
-      --section: #1a1a1a;
-    }
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
 
-    body.light-mode {
-      --bg: #ffffff;
-      --text: #111;
-      --highlight: #ff3c38;
-      --section: #eaeaea;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Noto Sans JP', sans-serif;
-      background-color: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-      transition: background 0.3s, color 0.3s;
-    }
-
-    header {
-      background-color: var(--bg);
-      padding: 20px 40px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 3px solid var(--highlight);
-      transition: background-color 0.3s;
-    }
-
-    .logo {
-      font-family: 'Orbitron', sans-serif;
-      font-size: 1.7rem;
-      color: var(--highlight);
-      letter-spacing: 1px;
-    }
-
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 25px;
-    }
-
-    nav a {
-      color: var(--text);
-      text-decoration: none;
-      transition: color 0.3s;
-    }
-
-    nav a:hover {
-      color: var(--highlight);
-    }
-
-    #hero {
-      position: relative;
-      min-height: 100vh;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .hero-layer {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-size: cover;
-      background-position: center;
-      opacity: 0;
-      transition: opacity 1s ease-in-out;
-      z-index: 0;
-    }
-
-    .hero-layer.active {
-      opacity: 1;
-      z-index: 1;
-    }
-    
-    #hero h1,
-    #hero p,
-    #hero .btn {
-      position: relative;
-      z-index: 2;
-      color: white;
-      text-align: center;
-      text-shadow: 2px 2px 6px #000;
-    }
-
-    .btn {
-      background-color: var(--highlight);
-      color: white;
-      padding: 12px 30px;
-      border: none;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 1rem;
-      transition: background 0.3s;
-    }
-
-    .btn:hover {
-      background-color: #e02929;
-    }
-
-    .toggle-theme {
-      background: none;
-      border: 2px solid var(--highlight);
-      color: var(--highlight);
-      padding: 6px 12px;
-      border-radius: 6px;
-      cursor: pointer;
-      font-weight: bold;
-    }
-
-    main section {
-      padding: 60px 40px;
-      max-width: 1000px;
-      margin: auto;
-    }
-
-    h2 {
-      color: var(--highlight);
-      margin-bottom: 20px;
-      font-size: 2rem;
-    }
-
-    .player-box {
-      background: var(--section);
-      padding: 20px;
-      border-radius: 10px;
-      text-align: center;
-    }
-
-    .player-custom {
-      width: 100%;
-      margin-top: 10px;
-    }
-
-    footer {
-      background-color: #000;
-      text-align: center;
-      padding: 20px;
-      color: #aaa;
-      font-size: 0.9rem;
-      margin-top: 60px;
-    }
-
-    a {
-      color: var(--highlight);
-    }
-
-    .youtube-player {
-      display: none;
-      margin-top: 10px;
-    }
-
-    .youtube-player.active {
-      display: block;
-    }
-
-    .youtube-player iframe {
-      width: 100%;
-      height: 400px;
-      border-radius: 6px;
-    }
-  </style>
 </head>
 <body>
   <header>
     <div class="logo">
-      <img src="Fujiwara Tofu Ten (Jikayou).jpg" alt="Logo da Rádio Tofu de Fujiwara" style="width: 100px; height: 60px; object-fit: cover; border-radius: 5px;">
+      <img src="tofu-fujiwara-eurobeat-radio.png" alt="Logo da Rádio Tofu de Fujiwara" style="width: 100px; height: 60px; object-fit: cover; border-radius: 5px;">
     </div>
-    <nav class="nav">
-      <ul>
-        <li><a href="sobre.html">Sobre</a></li>
-        <li><a href="#player">Ouvir</a></li>
-        <li><a href="#contato">Contato</a></li>
-      </ul>
-    </nav>
-    <button class="toggle-theme" onclick="toggleTheme()">🌗</button>
+    <div class="header-right">
+      <nav class="nav">
+        <ul>
+          <li><button class="toggle-theme" onclick="toggleTheme()">🌗</button></li>
+          <li><a href="sobre.html">Sobre</a></li>
+          <li><a href="#player">Ouvir</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
   <main>
@@ -214,10 +51,7 @@
     <section id="player">
       <h2>Ouvir Agora</h2>
       <div class="player-box">
-        <select id="playlistSelector">
-          <option value="">Selecione uma playlist...</option>
-        </select>
-        <div id="youtubePlayer" class="youtube-player"></div>
+        <div id="react-player"></div>
         <p>* Aguarde alguns segundos para carregar a transmissão.</p>
       </div>
     </section>
@@ -242,7 +76,133 @@
     <p>&copy; 2026 Rádio Tofu de Fujiwara. Todos os direitos reservados.</p>
   </footer>
   
-  <script src="/script.js">
+  <script type="text/babel">
+    
+    const BACKEND_URL = "http://localhost:3000";
+    
+    function DashboardPlayer() {
+      const [videos, setVideos] = React.useState([]);
+      const [currentVideo, setCurrentVideo] = React.useState(null);
+      const [isPlaying, setIsPlaying] = React.useState(false);
+      const [rpm, setRpm] = React.useState(0);
+      const [speed, setSpeed] = React.useState(0);
+      
+      async function loadPlaylist() {
+        const res = await fetch(`${BACKEND_URL}/api/playlist/PLAZCk8xCc7mZbuQOpzt7xt_UpHrWkPuOm`);
+        const data = await res.json();
+        if (data.videos && data.videos.length > 0) {
+          setVideos(data.videos);
+          setCurrentVideo(data.videos[0]);
+        }
+      }
+      
+      const playerRef = React.useRef(null);
+      const containerRef = React.useRef(null);
+      
+      {/*REACT EFFECTS*/}
+      React.useEffect(() => {
+        if (!window.YT || !window.YT.Player) return;
+
+        playerRef.current = new YT.Player(containerRef.current, {
+          height: '250',
+          width: '100%',
+          videoId: currentVideo?.id,
+          events: {
+            onReady: () => {}
+          }
+        });
+
+      }, []);
+
+      React.useEffect(() => {
+        if (playerRef.current && currentVideo) {
+          playerRef.current.loadVideoById(currentVideo.id);
+        }
+      }, [currentVideo]);
+
+      React.useEffect(() => {
+        if (!playerRef.current) return;
+
+        if (isPlaying) {
+          playerRef.current.playVideo();
+        } else {
+          playerRef.current.pauseVideo();
+        }
+      }, [isPlaying]);
+
+      React.useEffect(() => {
+        loadPlaylist();
+      }, []);
+
+      return (
+        <div class="dashboard">
+        
+          <div ref={containerRef} className="yt-frame"></div>
+          {/* DISPLAY */}
+          <div className="display">
+            <h3>{isPlaying ? currentVideo?.title : "ENGINE OFF"}</h3>
+          </div>
+
+          {/* GAUGES */}
+          <div className="gauges">
+
+            <div className="gauge">
+              <p>RPM</p>
+              <div className="bar">
+                <div 
+                  className="fill"
+                  style={{ width: `${(rpm / 8000) * 100}%` }}
+                ></div>
+              </div>
+              <span>{Math.floor(rpm)}</span>
+            </div>
+
+            <div className="gauge">
+              <p>SPEED</p>
+              <div className="bar">
+                <div 
+                  className="fill speed"
+                  style={{ width: `${(speed / 180) * 100}%` }}
+                ></div>
+              </div>
+              <span>{Math.floor(speed)} km/h</span>
+            </div>
+
+          </div>
+
+          {/* CONTROLES */}
+          <div className="controls">
+            <button onClick={() => setIsPlaying(!isPlaying)}>
+              {isPlaying ? "STOP" : "START"}
+            </button>
+          </div>
+
+          {/* PLAYLIST */}
+          <div className="playlist">
+            {videos.map((video, index) => (
+              <div 
+                key={video.id}
+                className={`track ${currentVideo?.id === video.id ? "active" : ""}`}
+                onClick={() => {
+                  setCurrentVideo(video);
+                  setIsPlaying(true);
+                }}
+              >
+                {index + 1}. {video.title}
+              </div>
+            ))}
+          </div>
+
+        </div>
+      );
+    }
+    const rootElement = document.getElementById("react-player");
+
+    if (rootElement) {
+      ReactDOM.createRoot(rootElement).render(<DashboardPlayer />);
+    }
+
   </script>
+  <script src="/script.js"></script>
 </body>
 </html>
