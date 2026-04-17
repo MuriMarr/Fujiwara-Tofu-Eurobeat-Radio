@@ -14,10 +14,10 @@ function toggleTheme() {
         
       // Imagens de fundo para crossfade
       const images = [
-      './1984-toyota-ae86-drift-car_100577710_h.jpg',
-      './Drift is love.jpg',
-      './Takumi-Itsuki.jpg',
-      './Sudo Kyoichi vs Takahashi Ryosuke - ID 1st Stage.jpg'
+      'images/1984-toyota-ae86-drift-car_100577710_h.jpg',
+      'images/Drift is love.jpg',
+      'images/Takumi-Itsuki.jpg',
+      'images/Sudo Kyoichi vs Takahashi Ryosuke - ID 1st Stage.jpg'
     ];
       
       // Configuração do crossfade
