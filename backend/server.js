@@ -10,22 +10,6 @@ const PORT = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
 
-// Content Security Policy
-app.use((req, res, next) => {
-  res.setHeader(
-    'Content-Security-Policy',
-    "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.youtube.com https://www.googletagmanager.com https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; connect-src 'self' https://www.googleapis.com https://www.youtube.com http://localhost:* localhost:*; frame-src https://www.youtube.com; font-src https://fonts.gstatic.com;"
-  );
-  next();
-});
-
-app.use(express.static('.')); // Serve arquivos estáticos
-
-// Servir dream_init.html na raiz
-app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/dream_init.html');
-});
-
 // Variáveis de configuração
 const YOUTUBE_API_KEY = process.env.YOUTUBE_API_KEY;
 

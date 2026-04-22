@@ -1,9 +1,16 @@
-# ☕ NOVAS ATUALIZAÇÕES
----
-Meu intuito no início era fazer uma rádio online *"arroz com feijão"*, sem muito segredo e macetes de programação, apenas um visual nostálgico para quem curte Eurobeat e Initial D. Porém, entretanto, todavia, hoje de manhã (16/04/2026) com apenas **5 horas de sono**, pensei comigo mesmo e tive a GRANDE E GENIOSA IDÉIA:
+# React + Vite
 
-*<h4>"Por que não usar React e aprender mais uma coisa nova???"</h4>*
----
-Como vocês irão ver em breve (irei postar prints sobre telas, funcionalidades e etc.), tem muitas coisas que não sei o que estou fazendo e coisas com qual sou familiarizado no JS, apesar do meu forte ser programação em Python.
-<br>
-Não sou um cara do JavaScript, mas acredito que esse projeto será de grande aprendizado e também muito satisfatório de criar, pois até onde eu sei, não existe uma rádio apenas focada em Eurobeat no mundo e eu gostaria de ser o primeiro (ou um dos primeiros) a criá-la.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+
+Currently, two official plugins are available:
+
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+
+## React Compiler
+
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+
+## Expanding the ESLint configuration
+
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
