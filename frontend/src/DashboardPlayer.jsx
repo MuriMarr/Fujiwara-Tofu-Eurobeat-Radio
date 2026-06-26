@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from 'react';
 
-const BACKEND_URL = "http://localhost:3000";
+const BACKEND_URL = import.meta.env.VITE_API_URL;
 
 export default function DashboardPlayer() {
     const [videos, setVideos] = useState([]);
@@ -15,6 +15,11 @@ export default function DashboardPlayer() {
     async function loadPlaylist() {
         const res = await fetch(`${BACKEND_URL}/api/playlist/PLAZCk8xCc7mZbuQOpzt7xt_UpHrWkPuOm`);
         const data = await res.json();
+
+        if (!data.success || !Array.isArray(data.videos)) {
+            console.error('Erro ao carregar playlist:', data.error || 'Playlist inválida.');
+            return;
+        }
 
         const formatted = data.videos.map(v => ({
             id: v.id,
