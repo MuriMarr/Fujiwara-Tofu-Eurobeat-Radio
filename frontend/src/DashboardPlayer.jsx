@@ -13,7 +13,7 @@ export default function DashboardPlayer() {
     const containerRef = useRef(null);
 
     async function loadPlaylist() {
-        const res = await fetch(`${BACKEND_URL}/api/playlist/PLAZCk8xCc7mZbuQOpzt7xt_UpHrWkPuOm`);
+        const res = await fetch(`${BACKEND_URL}/routes/playlist/PLAZCk8xCc7mZbuQOpzt7xt_UpHrWkPuOm`);
         const data = await res.json();
 
         if (!data.success || !Array.isArray(data.videos)) {
