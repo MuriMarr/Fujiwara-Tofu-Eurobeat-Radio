@@ -1,4 +1,37 @@
-app.get('/api/playlist/:playlistId', async (req, res) => {
+const express = require('express');
+const axios = require('axios');
+const { YOUTUBE_API_KEY } = require('../config');
+
+const router = express.Router();
+
+const cache = new Map();
+const CACHE_DURATION = 1000 * 60 * 60; // 1 hora
+
+function getCached(playlistId) {
+  const cached = cache.get(playlistId);
+  
+  if (!cached) return null;
+
+  if (Date.now() - cached.timestamp > CACHE_DURATION) {
+    cache.delete(playlistId);
+    return null;
+  }
+
+  return cached.data;
+}
+
+function setCached(playlistId, data) {
+  cache.set(playlistId, {
+    data,
+    timestamp: Date.now()
+  });
+}
+
+setInterval(() => {
+  cache.clear();
+}, CACHE_DURATION); // Limpar cache a cada hora
+
+router.get('/playlist/:playlistId', async (req, res) => {
   try {
     const { playlistId } = req.params;
     const maxResults = parseInt(req.query.maxResults) || 50;
@@ -50,3 +83,5 @@ app.get('/api/playlist/:playlistId', async (req, res) => {
     });
   }
 });
+
+module.exports = router;

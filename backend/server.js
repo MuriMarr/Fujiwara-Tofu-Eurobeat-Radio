@@ -1,8 +1,13 @@
 const express = require('express');
 const cors = require('cors');
-const axios = require('axios');
+
+const { PORT } = require('./config');
+
+const playlistRoutes = require('./routes/playlist');
+const healthRoutes = require('./routes/health');
 
 const app = express();
+
 const allowedOrigins = [
   'http://localhost:5173',
   'https://fujiwara-tofu-eurobeat-radio.vercel.app'
@@ -20,13 +25,8 @@ app.use(cors({
 }));
 app.use(express.json());
 
-// Variáveis de configuração
-const YOUTUBE_API_KEY = process.env.YOUTUBE_API_KEY;
-
-// Cache simples para evitar requisições repetidas
-setInterval(() => {
-  cache.clear();
-  }, 1000 * 60 * 60); // 1 hora
+app.use("/api", playlistRoutes);
+app.use("/api", healthRoutes);
 
 /**
  * Iniciar servidor
