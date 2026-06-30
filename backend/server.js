@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 
-const { PORT } = require('./config');
+const { PORT } = require('/config');
 
 const playlistRoutes = require('./routes/playlist');
 const healthRoutes = require('./routes/health');
