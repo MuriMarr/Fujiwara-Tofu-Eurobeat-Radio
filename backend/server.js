@@ -25,8 +25,8 @@ app.use(cors({
 }));
 app.use(express.json());
 
-app.use("/routes", playlistRoutes);
-app.use("/routes", healthRoutes);
+app.use("/api", playlistRoutes);
+app.use("/api", healthRoutes);
 
 /**
  * Iniciar servidor
