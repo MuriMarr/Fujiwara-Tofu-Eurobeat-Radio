@@ -1,8 +1,8 @@
 const express = require('express');
 const axios = require('axios');
-const { YOUTUBE_API_KEY } = require('../config');
-const router = express.Router();
+const { YOUTUBE_API_KEY } = require('./config');
 
+const router = express.Router();
 router.get('/playlist/:playlistId', async (req, res) => {
   try {
     const { playlistId } = req.params;
