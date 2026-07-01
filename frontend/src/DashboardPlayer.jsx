@@ -13,7 +13,6 @@ export default function DashboardPlayer() {
     const containerRef = useRef(null);
 
     async function loadPlaylist() {
-        console.log("BACKEND_URL:", BACKEND_URL);
         const res = await fetch(`${BACKEND_URL}/api/playlist/PLAZCk8xCc7mZbuQOpzt7xt_UpHrWkPuOm`);
         const data = await res.json();
 

@@ -10,7 +10,8 @@ const app = express();
 
 const allowedOrigins = [
   'http://localhost:5173',
-  'https://fujiwara-tofu-eurobeat-radio.vercel.app'
+  'https://fujiwara-tofu-eurobeat-radio.vercel.app',
+  'https://fujiwara-tofu-eurobeat-radio-88729c4eg-murimarr1.vercel.app'
 ];
 
 // Middleware

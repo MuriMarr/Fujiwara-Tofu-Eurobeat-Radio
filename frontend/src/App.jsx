@@ -55,7 +55,7 @@ function App() {
               <li>
                 <button onClick={toggleTheme} className="theme-toggle">🌓</button>
               </li>
-              <li><a href="/sobre.html">Sobre</a></li>
+              <li><a href="./sobre.html">Sobre</a></li>
               <li><a href="#player">Ouvir</a></li>
               <li><a href="#contato">Contato</a></li>
             </ul>
