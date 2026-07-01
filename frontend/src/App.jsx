@@ -1,5 +1,8 @@
 import { useState, useEffect } from 'react';
 import DashboardPlayer from './DashboardPlayer'
+import Header from './components/Header.jsx'
+import Hero from './components/Hero.jsx'
+import Footer from './components/Footer.jsx'
 import "./style.css"
 
 function App() {
@@ -40,79 +43,11 @@ function App() {
 
     return () => clearInterval(interval);
   }, []);
-
-  return (
-    <>
-      <header>
-        <div className="logo">
-          <img src="/images/tofu-fujiwara-eurobeat-radio.png" alt="logo"
-            style={{ width: "100px", height: "60px", objectFit: "cover", borderRadius: "5px" }} />
-        </div>
-
-        <div className="header-right">
-          <nav className="nav">
-            <ul>
-              <li>
-                <button onClick={toggleTheme} className="theme-toggle">🌓</button>
-              </li>
-              <li><a href="./sobre.html">Sobre</a></li>
-              <li><a href="#player">Ouvir</a></li>
-              <li><a href="#contato">Contato</a></li>
-            </ul>
-          </nav>
-        </div>
-      </header>
-
-      {/* MAIN */}
-      <main>
-
-        {/* HERO */}
-        <section id="hero">
-          <div className='hero-layer active'
-            style={{ backgroundImage: `url(${images[currentBg]})` }} />
-
-          <h1>Bem-vindo à Rádio Tofu de Fujiwara!</h1>
-          <p>A primeira e melhor rádio de Eurobeat do Brasil!</p>
-          <a href="#player" className="btn">Ouça Agora</a>
-        </section>
-
-        {/* PLAYER */}
-        <section id="player">
-          <h2>Ouvir agora!</h2>
-          <div className="player-box">
-            <DashboardPlayer />
-            <p>* Aguarde alguns instantes para a transmissão carregar.</p>
-          </div>
-        </section>
-
-        {/* SOBRE */}
-        <section id="sobre">
-          <h2>Sobre</h2>
-          <p>
-            A Rádio Tofu de Fujiwara é feita para os amantes de carros, drift,
-            cultura japonesa e trilhas sonoras nostálgicas. Uma homenagem ao AE86
-            de Akina e às corridas noturnas.
-          </p>
-        </section>
-
-        {/* CONTATO */}
-        <section id="contato">
-          <h2>Contato</h2>
-          <p>
-            Quer sugerir uma música ou falar sobre drift, eventos e notícias sobre automobilismo? Entre em contato com a gente no Instagram!
-            <a href="https://www.instagram.com/lojadetofufujiwara">
-              @lojadetofufujiwara
-            </a>
-          </p>
-        </section>
-      </main>
-
-      {/* FOOTER */}
-      <footer>
-        <p>&copy; 2026 Rádio Tofu de Fujiwara. Todos os direitos reservados.</p>
-      </footer>
-    </>
-  );
-}
+  <Header />;
+  
+  <Hero />;
+  
+  <Footer />;
+};
 
 export default App;

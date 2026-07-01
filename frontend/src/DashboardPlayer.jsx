@@ -1,6 +1,8 @@
 import { useEffect, useState, useRef } from 'react';
+import { getPlaylist } from './services/api';
 
 const BACKEND_URL = import.meta.env.VITE_API_URL;
+const data = await getPlaylist('PLAZCk8xCc7mZbuQOpzt7xt_UpHrWkPuOm');
 
 export default function DashboardPlayer() {
     const [videos, setVideos] = useState([]);
